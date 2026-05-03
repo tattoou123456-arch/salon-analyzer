@@ -124,7 +124,9 @@ if uploaded_file:
             st.error("APIキーを設定してください（サイドバー または 環境変数 GOOGLE_API_KEY）")
             st.stop()
 
-        prompt = ANALYSIS_PROMPT.format(text=text)
+        # 無料枠のトークン制限対策：先頭15000文字に絞る
+        trimmed_text = text[:15000] if len(text) > 15000 else text
+        prompt = ANALYSIS_PROMPT.format(text=trimmed_text)
 
         st.markdown("## 🤖 AI 分析レポート")
         st.caption(f"生成日時: {datetime.now().strftime('%Y年%m月%d日 %H:%M')}")

@@ -1,6 +1,6 @@
 import streamlit as st
 import pdfplumber
-from google import genai
+import requests
 import io
 import os
 from datetime import datetime
@@ -124,7 +124,6 @@ if uploaded_file:
             st.error("APIキーを設定してください（サイドバー または 環境変数 GOOGLE_API_KEY）")
             st.stop()
 
-        client = genai.Client(api_key=key)
         prompt = ANALYSIS_PROMPT.format(text=text)
 
         st.markdown("## 🤖 AI 分析レポート")
@@ -135,11 +134,11 @@ if uploaded_file:
 
         try:
             with st.spinner("分析中..."):
-                response = client.models.generate_content(
-                    model="gemini-2.0-flash-lite",
-                    contents=prompt
-                )
-                full_response = response.text
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={key}"
+                payload = {"contents": [{"parts": [{"text": prompt}]}]}
+                resp = requests.post(url, json=payload, timeout=120)
+                resp.raise_for_status()
+                full_response = resp.json()["candidates"][0]["content"]["parts"][0]["text"]
 
             result_container.markdown(full_response)
 

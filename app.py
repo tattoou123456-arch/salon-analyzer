@@ -124,7 +124,7 @@ if uploaded_file:
             st.error("APIキーを設定してください（サイドバー または 環境変数 GROQ_API_KEY）")
             st.stop()
 
-        trimmed_text = text[:12000] if len(text) > 12000 else text
+        trimmed_text = text[:6000] if len(text) > 6000 else text
         prompt = ANALYSIS_PROMPT.format(text=trimmed_text)
 
         st.markdown("## 🤖 AI 分析レポート")

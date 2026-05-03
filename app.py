@@ -1,6 +1,6 @@
 import streamlit as st
 import pdfplumber
-import requests
+from groq import Groq
 import io
 import os
 from datetime import datetime
@@ -24,10 +24,10 @@ st.markdown('<div class="sub-title">ホットペッパービューティーの�
 with st.sidebar:
     st.header("⚙️ 設定")
     api_key = st.text_input(
-        "Google API キー",
+        "Groq API キー",
         type="password",
-        value=os.environ.get("GOOGLE_API_KEY", ""),
-        help="Google AI Studio で取得したAPIキー"
+        value=os.environ.get("GROQ_API_KEY", ""),
+        help="groq.com で取得したAPIキー"
     )
     st.markdown("---")
     st.markdown("**分析項目**")
@@ -119,13 +119,12 @@ if uploaded_file:
     st.markdown("---")
 
     if st.button("🔍 AI分析を開始する", type="primary", use_container_width=True):
-        key = api_key or os.environ.get("GOOGLE_API_KEY", "")
+        key = api_key or os.environ.get("GROQ_API_KEY", "")
         if not key:
-            st.error("APIキーを設定してください（サイドバー または 環境変数 GOOGLE_API_KEY）")
+            st.error("APIキーを設定してください（サイドバー または 環境変数 GROQ_API_KEY）")
             st.stop()
 
-        # 無料枠のトークン制限対策：先頭15000文字に絞る
-        trimmed_text = text[:15000] if len(text) > 15000 else text
+        trimmed_text = text[:12000] if len(text) > 12000 else text
         prompt = ANALYSIS_PROMPT.format(text=trimmed_text)
 
         st.markdown("## 🤖 AI 分析レポート")
@@ -136,11 +135,13 @@ if uploaded_file:
 
         try:
             with st.spinner("分析中..."):
-                url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key={key}"
-                payload = {"contents": [{"parts": [{"text": prompt}]}]}
-                resp = requests.post(url, json=payload, timeout=120)
-                resp.raise_for_status()
-                full_response = resp.json()["candidates"][0]["content"]["parts"][0]["text"]
+                client = Groq(api_key=key)
+                response = client.chat.completions.create(
+                    model="llama-3.3-70b-versatile",
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=4096,
+                )
+                full_response = response.choices[0].message.content
 
             result_container.markdown(full_response)
 

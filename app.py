@@ -134,7 +134,7 @@ if uploaded_file:
 
         try:
             with st.spinner("分析中..."):
-                url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={key}"
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key={key}"
                 payload = {"contents": [{"parts": [{"text": prompt}]}]}
                 resp = requests.post(url, json=payload, timeout=120)
                 resp.raise_for_status()

@@ -1,6 +1,6 @@
 import streamlit as st
 import pdfplumber
-import anthropic
+import google.generativeai as genai
 import io
 import os
 from datetime import datetime
@@ -13,45 +13,21 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-    .main-title {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-bottom: 0.25rem;
-    }
-    .sub-title {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 2rem;
-    }
-    .upload-section {
-        background: #f8f9fa;
-        border-radius: 12px;
-        padding: 2rem;
-        border: 2px dashed #dee2e6;
-        text-align: center;
-    }
-    .result-box {
-        background: white;
-        border-radius: 12px;
-        padding: 1.5rem;
-        border: 1px solid #e9ecef;
-        margin-top: 1rem;
-    }
+    .main-title { font-size: 2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.25rem; }
+    .sub-title { font-size: 1rem; color: #666; margin-bottom: 2rem; }
 </style>
 """, unsafe_allow_html=True)
 
 st.markdown('<div class="main-title">💇 HPB サロンレポート 自動分析ツール</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-title">ホットペッパービューティーのサロンレポートPDFをアップロードするだけで、AI が強み・課題・改善提案を自動生成します。</div>', unsafe_allow_html=True)
 
-# Sidebar: API Key
 with st.sidebar:
     st.header("⚙️ 設定")
     api_key = st.text_input(
-        "Anthropic API キー",
+        "Google API キー",
         type="password",
-        value=os.environ.get("ANTHROPIC_API_KEY", ""),
-        help="APIキーが環境変数 ANTHROPIC_API_KEY に設定されている場合は不要です"
+        value=os.environ.get("GOOGLE_API_KEY", ""),
+        help="Google AI Studio で取得したAPIキー"
     )
     st.markdown("---")
     st.markdown("**分析項目**")
@@ -116,7 +92,6 @@ ANALYSIS_PROMPT = """あなたは美容サロン経営の専門コンサルタ�
 このサロンの現状を3〜4行でまとめ、最も重要なメッセージを伝える
 """
 
-# Main area
 uploaded_file = st.file_uploader(
     "サロンレポートPDF をドラッグ＆ドロップ、またはクリックして選択",
     type="pdf",
@@ -144,12 +119,13 @@ if uploaded_file:
     st.markdown("---")
 
     if st.button("🔍 AI分析を開始する", type="primary", use_container_width=True):
-        key = api_key or os.environ.get("ANTHROPIC_API_KEY", "")
+        key = api_key or os.environ.get("GOOGLE_API_KEY", "")
         if not key:
-            st.error("APIキーを設定してください（サイドバー または 環境変数 ANTHROPIC_API_KEY）")
+            st.error("APIキーを設定してください（サイドバー または 環境変数 GOOGLE_API_KEY）")
             st.stop()
 
-        client = anthropic.Anthropic(api_key=key)
+        genai.configure(api_key=key)
+        model = genai.GenerativeModel("gemini-1.5-flash")
         prompt = ANALYSIS_PROMPT.format(text=text)
 
         st.markdown("## 🤖 AI 分析レポート")
@@ -159,28 +135,21 @@ if uploaded_file:
         full_response = ""
 
         try:
-            with client.messages.stream(
-                model="claude-sonnet-4-6",
-                max_tokens=4096,
-                messages=[{"role": "user", "content": prompt}]
-            ) as stream:
-                for text_chunk in stream.text_stream:
-                    full_response += text_chunk
-                    result_container.markdown(full_response + "▌")
+            with st.spinner("分析中..."):
+                response = model.generate_content(prompt)
+                full_response = response.text
 
             result_container.markdown(full_response)
 
             st.markdown("---")
             st.download_button(
-                label="📥 分析レポートをダウンロード（テキスト）",
+                label="📥 分析レポートをダウンロード",
                 data=full_response,
                 file_name=f"salon_analysis_{datetime.now().strftime('%Y%m%d_%H%M')}.md",
                 mime="text/markdown",
                 use_container_width=True
             )
 
-        except anthropic.AuthenticationError:
-            st.error("APIキーが無効です。正しいキーを入力してください。")
         except Exception as e:
             st.error(f"分析中にエラーが発生しました: {e}")
 
@@ -192,5 +161,5 @@ else:
     - 複数ページのPDFに対応
 
     **分析にかかる時間**
-    - 約30〜60秒
+    - 約20〜40秒
     """)

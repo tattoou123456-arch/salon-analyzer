@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>7大特典＋30分無料相談 | Salon Result Lab</title>
+  <meta name="description" content="美容サロンの予約数を伸ばしたい方へ。公式LINE追加で7大無料特典と30分の無料コンサルティングを自動プレゼント。HPB・minimo・Google・Instagramをまとめて改善できます。" />
+  <meta property="og:title" content="美容サロン集客 7大特典＋30分無料相談" />
+  <meta property="og:description" content="公式LINE追加で、HPB・minimo・Google・Instagram集客に使える7大特典と30分無料相談をプレゼント。" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#06c755" />
+  <style>
+    :root {
+      --line: #06c755;
+      --line-dark: #04a747;
+      --ink: #101418;
+      --muted: #67727e;
+      --paper: #ffffff;
+      --soft: #f4f8f5;
+      --accent: #ff8a00;
+      --gold: #f6c85f;
+      --shadow: 0 18px 45px rgba(16, 20, 24, 0.14);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(6, 199, 85, 0.14), transparent 34rem),
+        linear-gradient(180deg, #fbfffd 0%, #f5f7fb 52%, #ffffff 100%);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding-bottom: 112px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 44px;
+      padding: 56px 0 28px;
+      min-height: 720px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(6, 199, 85, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--line-dark);
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(6, 199, 85, 0.08);
+    }
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(2.35rem, 5.2vw, 4.7rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+    }
+
+    h1 .green { color: var(--line-dark); }
+
+    .lead {
+      margin: 0 0 24px;
+      color: #27323d;
+      font-size: clamp(1.02rem, 2vw, 1.28rem);
+      font-weight: 700;
+    }
+
+    .proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .proof li {
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: var(--paper);
+      box-shadow: 0 10px 28px rgba(20, 30, 42, 0.07);
+      font-weight: 800;
+      color: #1c2934;
+    }
+
+    .proof strong { color: var(--accent); }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .line-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 60px;
+      padding: 0 28px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--line), var(--line-dark));
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.05rem;
+      text-decoration: none;
+      box-shadow: 0 14px 32px rgba(6, 199, 85, 0.34);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .line-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(6, 199, 85, 0.42);
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .visual-card {
+      position: relative;
+      padding: 26px;
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      overflow: hidden;
+    }
+
+    .visual-card::before {
+      content: "";
+      position: absolute;
+      inset: -70px -90px auto auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(6, 199, 85, 0.16);
+    }
+
+    .profile-mock {
+      position: relative;
+      padding: 22px;
+      border-radius: 28px;
+      background: #fff;
+      border: 1px solid #eef1f4;
+    }
+
+    .mock-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 1.18rem;
+    }
+
+    .avatar-row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 18px;
+      align-items: center;
+      margin: 22px 0 12px;
+    }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 2.1rem;
+      font-weight: 900;
+      background: linear-gradient(145deg, #161b22, #ff8a00);
+      box-shadow: inset 0 0 0 4px #fff, 0 8px 22px rgba(0, 0, 0, 0.16);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .stats strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .bio {
+      margin: 18px 0;
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    .bio .tag { color: var(--line-dark); }
+
+    .gift-stack {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .gift-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: var(--soft);
+      font-weight: 900;
+    }
+
+    .gift-pill span {
+      color: var(--line-dark);
+      white-space: nowrap;
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+      line-height: 1.25;
+      letter-spacing: -0.04em;
+      text-align: center;
+    }
+
+    .section-lead {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .benefit-card {
+      min-height: 190px;
+      padding: 20px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid #edf1f4;
+      box-shadow: 0 12px 30px rgba(20, 30, 42, 0.06);
+    }
+
+    .benefit-number {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      background: #e9fff1;
+      color: var(--line-dark);
+      font-weight: 900;
+    }
+
+    .benefit-card h3 {
+      margin: 14px 0 8px;
+      font-size: 1.05rem;
+      line-height: 1.45;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 650;
+    }
+
+    .consult {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 34px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, #142016, #0b3420 60%, #065b2a);
+      color: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .consult::after {
+      content: "無料";
+      position: absolute;
+      right: -24px;
+      top: -32px;
+      font-size: 6rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.06);
+      transform: rotate(12deg);
+    }
+
+    .consult-badge {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #bfffd6;
+      font-weight: 900;
+    }
+
+    .consult h2 {
+      margin: 12px 0;
+      font-size: clamp(1.8rem, 3.4vw, 3rem);
+      line-height: 1.18;
+      letter-spacing: -0.04em;
+    }
+
+    .consult p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 700;
+    }
+
+    .consult-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .consult-list li {
+      padding: 15px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-weight: 800;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      padding: 24px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid #edf1f4;
+      box-shadow: 0 12px 30px rgba(20, 30, 42, 0.06);
+    }
+
+    .step strong {
+      color: var(--line-dark);
+      font-size: 0.95rem;
+    }
+
+    .step h3 {
+      margin: 8px 0;
+      font-size: 1.18rem;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .final-cta {
+      margin: 32px 0 0;
+      padding: 32px;
+      text-align: center;
+      border-radius: 32px;
+      background: #fff;
+      border: 1px solid #edf1f4;
+      box-shadow: var(--shadow);
+    }
+
+    .final-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.25;
+    }
+
+    .final-cta p {
+      margin: 0 auto 22px;
+      max-width: 680px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(16, 20, 24, 0.08);
+    }
+
+    .sticky-inner {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .sticky-copy {
+      font-weight: 900;
+      line-height: 1.35;
+      font-size: 0.95rem;
+    }
+
+    .sticky-copy span {
+      display: block;
+      color: var(--line-dark);
+      font-size: 0.82rem;
+    }
+
+    .sticky-cta .line-button {
+      min-height: 52px;
+      padding: 0 20px;
+      font-size: 0.96rem;
+    }
+
+    footer {
+      padding: 24px 0 40px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .consult {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero { padding-top: 34px; }
+      .visual-card { order: -1; }
+      .benefits { grid-template-columns: 1fr 1fr; }
+      .benefit-card,
+      .benefit-card:nth-child(n) { grid-column: auto; }
+      .steps { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 22px, 1120px); }
+      .hero { gap: 24px; }
+      .visual-card,
+      .profile-mock,
+      .consult,
+      .final-cta { border-radius: 24px; }
+      .visual-card { padding: 14px; }
+      .profile-mock { padding: 16px; }
+      .benefits { grid-template-columns: 1fr; }
+      .consult { padding: 24px; }
+      .sticky-inner { grid-template-columns: 1fr; }
+      .sticky-copy { text-align: center; }
+      .sticky-cta .line-button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">Instagram限定案内｜公式LINE追加特典</div>
+        <h1 id="hero-title">美容サロン集客の<br><span class="green">7大特典</span>を<br>無料で受け取る</h1>
+        <p class="lead">公式LINEに追加するだけで、HPB・minimo・Googleマップ・Instagramの改善に使える実践テンプレート一式と、30分の特別無料コンサルティングが自動でついてきます。</p>
+        <ul class="proof" aria-label="実績例">
+          <li>月9件 → <strong>41件</strong></li>
+          <li>口コミ12件 → <strong>67件</strong></li>
+          <li>ページ改善で<strong>予約数UP</strong></li>
+        </ul>
+        <div class="cta-row">
+          <a class="line-button" href="https://lin.ee/replace-with-your-line-url" aria-label="公式LINEを追加して特典を受け取る">LINE追加で無料特典を受け取る</a>
+          <span class="note">登録後すぐに7大特典と無料相談の案内が届きます</span>
+        </div>
+      </div>
+
+      <div class="visual-card" aria-label="Instagramプロフィールイメージ">
+        <div class="profile-mock">
+          <div class="mock-top"><span>salon_result_lab</span><span>☰</span></div>
+          <div class="avatar-row">
+            <div class="avatar">RL</div>
+            <div class="stats">
+              <span><strong>0</strong>投稿</span>
+              <span><strong>0</strong>フォロワー</span>
+              <span><strong>0</strong>フォロー中</span>
+            </div>
+          </div>
+          <p class="bio">美容サロンの集客をお手伝いしています<br>ページをちょっと変えるだけで予約数は変わる<br><span class="tag">7大特典プレゼント中 ↓</span></p>
+          <div class="gift-stack">
+            <div class="gift-pill">7大無料プレゼント <span>自動配布</span></div>
+            <div class="gift-pill">30分無料相談 <span>特別招待</span></div>
+            <div class="gift-pill">HPB改善チェック <span>即実践</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="benefits-title">
+      <h2 class="section-title" id="benefits-title">LINE追加で届く7大特典</h2>
+      <p class="section-lead">「何から直せばいいかわからない」をなくすために、サロン集客の主要導線をまとめて改善できる内容にしました。</p>
+      <div class="benefits">
+        <article class="benefit-card">
+          <span class="benefit-number">1</span>
+          <h3>HPB集客改善チェックリスト</h3>
+          <p>30項目の自己診断で、予約につながりにくいページの弱点を見える化します。</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-number">2</span>
+          <h3>minimo集客スタートガイド</h3>
+          <p>初期設定から予約獲得まで、初心者でも迷わない6ステップ形式です。</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-number">3</span>
+          <h3>Googleマップ集客セットアップシート</h3>
+          <p>無料集客の土台になるMEO対策を、埋めるだけで整えられます。</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-number">4</span>
+          <h3>Instagram投稿テンプレ7日分</h3>
+          <p>曜日別ネタとキャプション雛形で、投稿に悩む時間を減らします。</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-number">5</span>
+          <h3>ChatGPTプロンプト集10個</h3>
+          <p>口コミ返信・クーポン文・ブログ作成などにそのまま使えるAI活用集です。</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-number">6</span>
+          <h3>客単価UPセットメニュー設計テンプレ</h3>
+          <p>松竹梅の価格設計とクーポン名の型で、単価改善の入口を作ります。</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-number">7</span>
+          <h3>新規リピート率UPカウンセリングシート</h3>
+          <p>メニュー別の質問リスト付き。初回接客・スタッフ研修にも活用できます。</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="consult-title">
+      <div class="consult">
+        <div>
+          <span class="consult-badge">さらに登録者限定</span>
+          <h2 id="consult-title">30分の特別無料コンサルティング付き</h2>
+          <p>特典を渡して終わりではなく、あなたのサロンページを見ながら「予約につながる改善ポイント」を一緒に整理します。</p>
+        </div>
+        <ul class="consult-list">
+          <li>HPBページ・クーポン・口コミ導線の改善点を確認</li>
+          <li>今月すぐ直すべき優先順位を3つに絞って提案</li>
+          <li>Instagramから公式LINE、予約までの導線をチェック</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="steps-title">
+      <h2 class="section-title" id="steps-title">受け取りはかんたん3ステップ</h2>
+      <p class="section-lead">Instagramを見ているスマホのまま、すぐに登録できます。</p>
+      <div class="steps">
+        <article class="step">
+          <strong>STEP 01</strong>
+          <h3>ボタンをタップ</h3>
+          <p>このページ内の「LINE追加で無料特典を受け取る」をタップします。</p>
+        </article>
+        <article class="step">
+          <strong>STEP 02</strong>
+          <h3>公式LINEを追加</h3>
+          <p>友だち追加後、案内に沿って特典の受け取りを進めてください。</p>
+        </article>
+        <article class="step">
+          <strong>STEP 03</strong>
+          <h3>特典と相談案内が届く</h3>
+          <p>7大特典と30分無料相談の予約案内が自動で届きます。</p>
+        </article>
+      </div>
+
+      <div class="final-cta">
+        <h2>サロン集客を、感覚ではなく<br>「改善できる形」に変えましょう。</h2>
+        <p>まずは無料特典で、あなたのページの伸びしろを確認してください。登録後すぐに受け取れます。</p>
+        <a class="line-button" href="https://lin.ee/replace-with-your-line-url" aria-label="公式LINEを追加する">今すぐ公式LINEを追加する</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-cta" role="region" aria-label="固定CTA">
+    <div class="sticky-inner">
+      <div class="sticky-copy"><span>7大特典＋30分無料相談つき</span>公式LINE追加で今すぐ受け取る</div>
+      <a class="line-button" href="https://lin.ee/replace-with-your-line-url">LINE追加</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Salon Result Lab</p>
+  </footer>
+</body>
+</html>
